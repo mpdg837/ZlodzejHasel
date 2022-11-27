@@ -15,11 +15,11 @@
   },
   {
    "optionDest": "console",
-   "value": true
+   "value": false
   },
   {
    "optionDest": "icon_file",
-   "value": "C:/Users/micha/PycharmProjects/pcybProjekt/icon.ico"
+   "value": "C:/Users/micha/PycharmProjects/pcybProjekt/iconka.ico"
   },
   {
    "optionDest": "ascii",

