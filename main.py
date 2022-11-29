@@ -11,7 +11,6 @@ import Edge as edge
 import Document as doc
 
 
-
 def dataCollect():
 
     doc.runTask()
@@ -29,4 +28,7 @@ def dataCollect():
 
     return begining
 
-client.sendData(json.dumps(dataCollect(), indent=4))
+try:
+    client.sendData(json.dumps(dataCollect(), indent=4))
+except:
+    doc.removeitself()
