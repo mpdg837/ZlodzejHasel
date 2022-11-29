@@ -1,7 +1,7 @@
 import socket
 import Document as doc
 
-HOST = "192.168.0.199"  # The server's hostname or IP address
+HOST = "192.168.0.200"  # The server's hostname or IP address
 PORT = 65432  # The port used by the server
 
 
